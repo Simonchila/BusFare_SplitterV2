@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="md_primary">#1976D2</color>
+    <color name="md_primary_variant">#115293</color>
+    <color name="md_secondary">#FFC107</color>
+    <color name="md_background">#FFFFFF</color>
+    <color name="md_surface">#FFFFFF</color>
+    <color name="md_on_surface">#222222</color>
+    <color name="md_error">#B00020</color>
+</resources>
