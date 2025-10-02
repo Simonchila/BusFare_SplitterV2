@@ -1,8 +1,8 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
-    android:padding="16dp"
+    android:layout_margin="3dp"
+    android:padding="0dp"
     android:elevation="4dp"
     android:foreground="?attr/selectableItemBackground">
 

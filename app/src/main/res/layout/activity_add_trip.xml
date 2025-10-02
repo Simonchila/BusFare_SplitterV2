@@ -16,18 +16,39 @@
             android:textSize="22sp"
             android:textStyle="bold" />
 
+        <!-- Starting Point -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Route">
+            android:hint="Starting Point">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etRoute"
+            <AutoCompleteTextView
+                android:id="@+id/actvStart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:padding="12dp"
+                android:layout_height="50dp"
+                android:completionThreshold="1"
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Destination -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Destination">
+
+            <AutoCompleteTextView
+                android:id="@+id/actvDestination"
+                android:layout_width="match_parent"
+                android:padding="12dp"
+                android:layout_height="52dp"
+                android:completionThreshold="1"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Date -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,6 +62,7 @@
                 android:focusable="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Total cost -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,7 +101,7 @@
         <Button
             android:id="@+id/btnCalculate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="59dp"
             android:layout_marginTop="20dp"
             android:text="Calculate split" />
     </LinearLayout>

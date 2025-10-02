@@ -1,9 +1,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
+    <!-- Base light/dark theme -->
     <style name="Base.Theme.BusFare_SplitterV2" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/md_primary</item>
+        <item name="colorOnPrimary">@color/md_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_primaryVariant</item>
+
+        <!-- Secondary colors -->
+        <item name="colorSecondary">@color/md_secondary</item>
+        <item name="colorOnSecondary">@color/md_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_secondaryVariant</item>
+
+        <!-- Background & surface -->
+        <item name="android:colorBackground">@color/md_background</item>
+        <item name="colorSurface">@color/md_surface</item>
+        <item name="colorOnBackground">@color/md_onBackground</item>
+        <item name="colorOnSurface">@color/md_onSurface</item>
+
+        <!-- Error -->
+        <item name="colorError">@color/md_error</item>
+        <item name="colorOnError">@color/md_onError</item>
     </style>
 
+    <!-- The theme we actually use in Manifest -->
     <style name="Theme.BusFare_SplitterV2" parent="Base.Theme.BusFare_SplitterV2" />
 </resources>

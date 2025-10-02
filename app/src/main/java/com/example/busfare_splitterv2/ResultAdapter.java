@@ -4,8 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.VH> {
@@ -22,8 +24,8 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.VH> {
     public void onBindViewHolder(@NonNull VH holder, int position) {
         PassengerShare p = list.get(position);
         holder.tvName.setText(p.name);
-        holder.tvAmount.setText(String.format("$%.2f", p.shareAmount));
-        holder.tvSurcharge.setText(String.format("$%.2f surcharge", p.surcharge));
+        holder.tvAmount.setText(String.format("K%.2f", p.shareAmount));
+        holder.tvSurcharge.setText(String.format("K%.2f surcharge", p.surcharge));
     }
 
     @Override public int getItemCount() { return list.size(); }

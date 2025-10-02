@@ -1,10 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="md_primary">#1976D2</color>
-    <color name="md_primary_variant">#115293</color>
-    <color name="md_secondary">#FFC107</color>
-    <color name="md_background">#FFFFFF</color>
+    <!-- Core palette -->
+    <color name="md_primary">#1A73E8</color>       <!-- strong blue -->
+    <color name="md_primaryVariant">#0D47A1</color> <!-- darker blue -->
+    <color name="md_secondary">#00BCD4</color>     <!-- teal -->
+    <color name="md_secondaryVariant">#00838F</color>
+    <color name="md_background">#F5F9FF</color>   <!-- very light blue/white -->
     <color name="md_surface">#FFFFFF</color>
-    <color name="md_on_surface">#222222</color>
     <color name="md_error">#B00020</color>
+
+    <!-- Text colors -->
+    <color name="md_onPrimary">#FFFFFF</color>
+    <color name="md_onSecondary">#FFFFFF</color>
+    <color name="md_onBackground">#0A0A0A</color>
+    <color name="md_onSurface">#0A0A0A</color>
+    <color name="md_onError">#FFFFFF</color>
 </resources>
+

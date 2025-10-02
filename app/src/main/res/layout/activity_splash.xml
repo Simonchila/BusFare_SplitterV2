@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash">
+
+    <!-- Overlay content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WELCOME TO BUS FARE_SPLITTER V2"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="32dp"/>
+
+        <ImageView
+            android:id="@+id/imgSplash"
+            android:layout_width="381dp"
+            android:layout_height="287dp"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Splash image"
+            android:src="@drawable/bus" />
+
+        <!-- Get Started button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGetStarted"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="350dp"
+            android:layout_height="69dp"
+            android:backgroundTint="@color/md_primary"
+            android:text="Get Started"
+            android:textColor="@android:color/white"
+            app:cornerRadius="16dp" />
+    </LinearLayout>
+</FrameLayout>

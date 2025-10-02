@@ -1,7 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.BusFare_SplitterV2" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Dark mode colors -->
+        <item name="colorPrimary">@color/md_primary</item> <!-- lighter blue in night/colors.xml -->
+        <item name="colorOnPrimary">@color/md_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_primaryVariant</item>
+
+        <item name="colorSecondary">@color/md_secondary</item>
+        <item name="colorOnSecondary">@color/md_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_secondaryVariant</item>
+
+        <item name="android:colorBackground">@color/ic_launcher_background</item>
+        <item name="colorSurface">@color/md_surface</item>
+        <item name="colorOnBackground">@color/md_onBackground</item>
+        <item name="colorOnSurface">@color/md_onSurface</item>
+
+        <item name="colorError">@color/md_error</item>
+        <item name="colorOnError">@color/md_onError</item>
     </style>
 </resources>
