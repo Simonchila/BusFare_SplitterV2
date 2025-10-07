@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,40 +5,47 @@
     android:layout_height="match_parent"
     android:background="@drawable/splash">
 
-    <!-- Overlay content -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
         android:padding="24dp">
+
         <TextView
             android:id="@+id/tvWelcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="WELCOME TO BUS FARE_SPLITTER V2"
-            android:textSize="20sp"
+            android:text="WELCOME TO BUS FARE SPLITTER V2"
+            android:textSize="22sp"
             android:textStyle="bold"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="24dp"/>
 
-        <ImageView
-            android:id="@+id/imgSplash"
-            android:layout_width="381dp"
-            android:layout_height="287dp"
-            android:layout_marginBottom="24dp"
-            android:contentDescription="Splash image"
-            android:src="@drawable/bus" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieView"
+            android:layout_width="338dp"
+            android:layout_height="395dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/lottie" />
 
-        <!-- Get Started button -->
+
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGetStarted"
             style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="350dp"
-            android:layout_height="69dp"
-            android:backgroundTint="@color/md_primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="56dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp"
             android:text="Get Started"
+            android:textSize="16sp"
             android:textColor="@android:color/white"
-            app:cornerRadius="16dp" />
+            app:cornerRadius="16dp"
+            android:backgroundTint="@color/md_primary"/>
     </LinearLayout>
 </FrameLayout>
