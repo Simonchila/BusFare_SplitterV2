@@ -18,7 +18,7 @@ public class Storage {
         SharedPreferences sp = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
         String json = new Gson().toJson(trips);
         sp.edit().putString(KEY_TRIPS, json).apply();
-    }
+    } 
 
     public static List<Trip> loadTrips(Context ctx) {
         SharedPreferences sp = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE);

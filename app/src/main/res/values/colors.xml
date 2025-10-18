@@ -1,10 +1,10 @@
 <resources>
     <!-- Core palette -->
-    <color name="md_primary">#1A73E8</color>       <!-- strong blue -->
+    <color name="md_primary">#1173F5</color>       <!-- strong blue -->
     <color name="md_primaryVariant">#0D47A1</color> <!-- darker blue -->
     <color name="md_secondary">#00BCD4</color>     <!-- teal -->
     <color name="md_secondaryVariant">#00838F</color>
-    <color name="md_background">#F5F9FF</color>   <!-- very light blue/white -->
+    <color name="md_background">#203A53</color>   <!-- very light blue/white -->
     <color name="md_surface">#FFFFFF</color>
     <color name="md_error">#B00020</color>
 

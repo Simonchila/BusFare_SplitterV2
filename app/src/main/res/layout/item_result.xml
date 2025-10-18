@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Alice"
+            android:textColor="@color/md_onPrimary"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -25,11 +26,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="$0.00"
+        android:textColor="@color/md_onPrimary"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvResSurcharge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/md_onPrimary"
         android:text="$0 surcharge" />
 </LinearLayout>

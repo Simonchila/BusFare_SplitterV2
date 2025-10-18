@@ -8,6 +8,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/md_onPrimary"
         android:hint="Name">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -20,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textColorHint="@color/md_onPrimary"
         android:hint="Surcharge (optional)">
 
         <com.google.android.material.textfield.TextInputEditText

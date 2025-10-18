@@ -1,51 +1,59 @@
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash">
+    android:background="@drawable/buscool2"
+    android:padding="24dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="24dp">
+    <!-- Welcome Text -->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BUS FARE SPLITTER"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/tvWelcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="WELCOME TO BUS FARE SPLITTER V2"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:layout_marginBottom="24dp"/>
+    <!-- Subtitle / Tagline -->
+    <TextView
+        android:id="@+id/tvTagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Easily split travel costs with your friends"
+        android:textAlignment="center"
+        android:textColor="#DADADA"
+        android:textSize="14sp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieView"
-            android:layout_width="338dp"
-            android:layout_height="395dp"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/lottie" />
+    <!-- Get Started Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGetStarted"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="@color/md_primary"
+        android:minHeight="56dp"
+        android:text="Get Started"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:cornerRadius="10dp"
+        app:iconGravity="textEnd"
+        app:iconPadding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGetStarted"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="56dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="24dp"
-            android:text="Get Started"
-            android:textSize="16sp"
-            android:textColor="@android:color/white"
-            app:cornerRadius="16dp"
-            android:backgroundTint="@color/md_primary"/>
-    </LinearLayout>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

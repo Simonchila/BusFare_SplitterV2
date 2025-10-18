@@ -35,7 +35,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.VH> {
         Trip t = trips.get(position);
         holder.tvRoute.setText(t.route);
         holder.tvDate.setText(t.date);
-        holder.tvTotal.setText(String.format("$%.2f", t.totalCost));
+        holder.tvTotal.setText(String.format("K%.2f", t.totalCost));
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) listener.onTrip(t);
         });

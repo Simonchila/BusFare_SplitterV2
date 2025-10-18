@@ -35,7 +35,7 @@ public class SplitResultsActivity extends AppCompatActivity {
         // safety: recompute in case
         computeSplit(trip);
 
-        tvTotalCost.setText(String.format(Locale.getDefault(), "Total cost  —  $%.2f", trip.totalCost));
+        tvTotalCost.setText(String.format(Locale.getDefault(), "Total cost  —  K%.2f", trip.totalCost));
         ResultAdapter ra = new ResultAdapter(trip.passengers);
         rvResults.setLayoutManager(new LinearLayoutManager(this));
         rvResults.setAdapter(ra);

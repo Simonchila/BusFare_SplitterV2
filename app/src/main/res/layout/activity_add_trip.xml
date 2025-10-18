@@ -1,108 +1,136 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/buscool"> <!-- Dark background -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingBottom="16dp">
 
+        <!-- Header -->
         <TextView
+            android:id="@+id/tvHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Trip"
             android:textSize="22sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/md_onPrimary"
+            android:background="@drawable/blue_border"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <!-- Starting Point -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
             android:hint="Starting Point">
 
             <AutoCompleteTextView
                 android:id="@+id/actvStart"
                 android:layout_width="match_parent"
-                android:padding="12dp"
                 android:layout_height="50dp"
                 android:completionThreshold="1"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#B0B0B0"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Destination -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
             android:hint="Destination">
 
             <AutoCompleteTextView
                 android:id="@+id/actvDestination"
                 android:layout_width="match_parent"
-                android:padding="12dp"
-                android:layout_height="52dp"
+                android:layout_height="50dp"
                 android:completionThreshold="1"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#B0B0B0"
+                android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Date -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
             android:hint="Date">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="false" />
+                android:focusable="false"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#B0B0B0"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Total cost -->
+        <!-- Total Cost -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
             android:hint="Total cost">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etTotalCost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#B0B0B0"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Passengers Header -->
         <TextView
-            android:layout_marginTop="18dp"
-            android:text="Passengers"
+            android:id="@+id/tvPassengersHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold" />
+            android:text="Passengers"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginBottom="8dp"/>
 
+        <!-- RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPassengers"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Add Passenger -->
+
+        <!-- Calculate Button -->
 
         <TextView
             android:id="@+id/tvAddPassenger"
-            android:layout_marginTop="8dp"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/blue_border"
             android:padding="8dp"
             android:text="Add passenger"
-            android:textColor="@color/md_primary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnCalculate"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_marginTop="20dp"
-            android:text="Calculate split" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2196F3"
+            android:text="Calculate split"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 </ScrollView>

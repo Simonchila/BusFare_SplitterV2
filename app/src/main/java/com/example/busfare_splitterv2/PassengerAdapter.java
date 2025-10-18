@@ -36,7 +36,7 @@ public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.VH> 
     public void onBindViewHolder(@NonNull VH holder, int position) {
         PassengerShare p = list.get(position);
         holder.tvName.setText(p.name);
-        holder.tvSurcharge.setText(String.format("+$%.2f", p.surcharge));
+        holder.tvSurcharge.setText(String.format("+K%.2f", p.surcharge));
 
         // Remove button
         holder.btnRemove.setOnClickListener(v -> {
