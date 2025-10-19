@@ -1,4 +1,4 @@
-package com.example.busfare_splitterv2;
+package com.example.busfare_splitterv2.UI.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.busfare_splitterv2.R;
+import com.example.busfare_splitterv2.UI.PassengerShare;
 
 import java.util.List;
 

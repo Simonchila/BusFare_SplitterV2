@@ -37,5 +37,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Remove"
             android:src="@android:drawable/ic_delete" />
+
+
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -1,4 +1,4 @@
-package com.example.busfare_splitterv2;
+package com.example.busfare_splitterv2.UI;
 
 import java.io.Serializable;
 

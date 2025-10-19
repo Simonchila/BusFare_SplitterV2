@@ -1,9 +1,16 @@
 package com.example.busfare_splitterv2.network;
 
+import com.google.gson.annotations.SerializedName;
+
 public class UserResponse {
     private int id;
     private String name;
     private String email;
+    @SerializedName("access_token")
+    private String accessToken;
+
+    @SerializedName("token_type")
+    private String tokenType;
 
     public int getId() {
         return id;
@@ -27,5 +34,13 @@ public class UserResponse {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public String getTokenType() {
+        return tokenType;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.busfare_splitterv2;
+package com.example.busfare_splitterv2.UI.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,17 +9,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.busfare_splitterv2.R;
+import com.example.busfare_splitterv2.UI.PassengerShare;
+import com.example.busfare_splitterv2.network.PassengerRequest;
+
 import java.util.List;
 
 public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.VH> {
 
     public interface OnRemove { void onRemove(int pos); }
+    public interface OnEdit { void onEdit(int pos); }
 
+    private final List<PassengerRequest> list;
+    private final OnRemove removeListener;
     private final OnEdit editListener;
 
-    private final List<PassengerShare> list;
-    private final OnRemove removeListener;
-    public PassengerAdapter(List<PassengerShare> list, OnRemove removeListener, OnEdit editListener) {
+    public PassengerAdapter(List<PassengerRequest> list, OnRemove removeListener, OnEdit editListener) {
         this.list = list;
         this.removeListener = removeListener;
         this.editListener = editListener;
@@ -34,17 +39,21 @@ public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.VH> 
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-        PassengerShare p = list.get(position);
-        holder.tvName.setText(p.name);
-        holder.tvSurcharge.setText(String.format("+K%.2f", p.surcharge));
+        PassengerRequest p = list.get(position);
 
-        // Remove button
+        holder.tvName.setText(p.name);
+
+        // Show surcharge if not zero, else just "-"
+        holder.tvSurcharge.setText(p.surcharge > 0
+                ? String.format("+K%.2f", p.surcharge)
+                : "-");
+
+
         holder.btnRemove.setOnClickListener(v -> {
             if (removeListener != null)
                 removeListener.onRemove(holder.getAdapterPosition());
         });
 
-        // Tap to edit
         holder.itemView.setOnClickListener(v -> {
             if (editListener != null)
                 editListener.onEdit(holder.getAdapterPosition());
@@ -56,13 +65,10 @@ public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.VH> 
         return list.size();
     }
 
-    public interface OnEdit {
-        void onEdit(int pos);
-    }
-
     static class VH extends RecyclerView.ViewHolder {
         TextView tvName, tvSurcharge;
         ImageButton btnRemove;
+
         VH(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);

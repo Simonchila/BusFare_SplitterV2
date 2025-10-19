@@ -1,10 +1,12 @@
-package com.example.busfare_splitterv2;
+package com.example.busfare_splitterv2.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.busfare_splitterv2.R;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -18,7 +20,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
         btnGetStarted.setOnClickListener(v -> {
-            startActivity(new Intent(SplashActivity.this, TripListActivity.class));
+            startActivity(new Intent(SplashActivity.this, GroupActivityMsg.class));
             finish();
         });
     }

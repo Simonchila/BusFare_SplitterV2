@@ -1,4 +1,4 @@
-package com.example.busfare_splitterv2;
+package com.example.busfare_splitterv2.UI.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,19 +8,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.busfare_splitterv2.R;
+import com.example.busfare_splitterv2.UI.Trip;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class TripAdapter extends RecyclerView.Adapter<TripAdapter.VH> {
-    public interface OnTripClick {
-        void onTrip(Trip t);
-    }
 
-    private final List<Trip> trips;
+    private List<Trip> trips;
     private final OnTripClick listener;
 
-    public TripAdapter(List<Trip> trips, OnTripClick l) {
-        this.trips = trips;
-        this.listener = l;
+    public interface OnTripClick {
+        void onTripClick(Trip trip);
+    }
+
+    public TripAdapter(List<Trip> trips, OnTripClick listener) {
+        this.trips = trips != null ? trips : new ArrayList<>();
+        this.listener = listener;
     }
 
     @NonNull
@@ -32,18 +37,24 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.VH> {
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-        Trip t = trips.get(position);
-        holder.tvRoute.setText(t.route);
-        holder.tvDate.setText(t.date);
-        holder.tvTotal.setText(String.format("K%.2f", t.totalCost));
+        Trip trip = trips.get(position);
+        holder.tvRoute.setText(trip.getRoute());
+        holder.tvDate.setText(trip.getDate());
+        holder.tvTotal.setText(String.format("K%.2f", trip.getTotalCost()));
+
         holder.itemView.setOnClickListener(v -> {
-            if (listener != null) listener.onTrip(t);
+            if (listener != null) listener.onTripClick(trip);
         });
     }
 
     @Override
     public int getItemCount() {
         return trips.size();
+    }
+
+    public void updateTrips(List<Trip> newTrips) {
+        this.trips = newTrips != null ? newTrips : new ArrayList<>();
+        notifyDataSetChanged();
     }
 
     static class VH extends RecyclerView.ViewHolder {
