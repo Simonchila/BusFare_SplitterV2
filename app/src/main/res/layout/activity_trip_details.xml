@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#1E88E5"
+    android:background="#121212"
     tools:context=".UI.TripDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#212121"
+        android:background="#121212"
         android:elevation="2dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -24,7 +24,7 @@
             android:contentDescription="Back"
             android:padding="8dp"
             android:src="@drawable/ic_back_arrow"
-            app:tint="#F8F9FA" />
+            app:tint="#FF1744" />
 
         <TextView
             android:id="@+id/tvHeader"
@@ -33,7 +33,7 @@
             android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:text="Trip Details"
-            android:textColor="#F8F9FA"
+            android:textColor="#FF1744"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -64,7 +64,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="158dp"
-                    android:background="#212121"
+                    android:background="@drawable/blackbus"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:textColor="#F8F9FA"
+                        android:textColor="#FF1744"
                         android:textSize="16sp"
                         tools:text="Ndola → Lusaka | 2025-10-15" />
 
@@ -81,7 +81,7 @@
                         android:id="@+id/tvTotalCost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#F8F9FA"
+                        android:textColor="#FF1744"
                         android:textSize="24sp"
                         android:textStyle="bold"
                         tools:text="Total Cost — K400.00" />
@@ -91,13 +91,13 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp"
-                        android:background="#EEEEEE" />
+                        android:background="#FF3B30" />
 
                     <TextView
                         android:id="@+id/tvPassengerCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#F8F9FA"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp"
                         tools:text="4 Passengers split the fare" />
                 </LinearLayout>
@@ -142,7 +142,7 @@
         android:text="EXPORT SHARES (CSV)"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:backgroundTint="#212121"
+        app:backgroundTint="#FF1744"
         app:cornerRadius="8dp" />
 
 </LinearLayout>

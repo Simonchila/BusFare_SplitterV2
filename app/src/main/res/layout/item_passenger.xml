@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:background="#212121"
+        android:background="#FF1744"
         android:orientation="horizontal"
         android:paddingVertical="12dp"
         android:paddingStart="16dp"
@@ -55,7 +55,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Remove passenger"
             android:src="@drawable/ic_remove"
-            app:tint="#D32F2F" />
+            app:tint="#F8F9FA" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

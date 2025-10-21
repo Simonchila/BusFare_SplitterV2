@@ -4,40 +4,82 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#212121"
-    android:padding="20dp">
+    android:background="#121212"
+    android:padding="24dp">
 
+    <!-- HEADER TITLE -->
+    <TextView
+        android:id="@+id/tvAddPassengerTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Passenger"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FF1744"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <!-- PASSENGER NAME -->
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:hint="Passenger Name"
-        android:textColorHint="#F8F9FA">
+        app:boxStrokeColor="#FF1744"
+        app:hintTextColor="#FFFFFF"
+        app:startIconDrawable="@drawable/ic_person"
+        app:startIconTint="#FF1744"
+        app:boxBackgroundColor="#1E1E1E"
+        app:hintTextAppearance="@style/TextAppearance.MaterialComponents.Caption">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassengerName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
             android:inputType="textPersonName|textCapWords" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- SURCHARGE -->
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Surcharge (optional)"
-        android:textColorHint="#F8F9FA"
+        app:boxStrokeColor="#FF1744"
+        app:startIconTint="#FF1744"
         app:prefixText="K"
-        app:prefixTextColor="#F8F9FA">
+        app:prefixTextColor="#FF1744"
+        app:boxBackgroundColor="#1E1E1E">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassengerSurcharge"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
             android:text="0.00"
-            android:textColor="#F8F9FA"/>
+            android:textColor="#FFFFFF"
+            android:textColorHint="#AAAAAA"
+            android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- ADD BUTTON -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddPassenger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="ADD PASSENGER"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_add"
+        app:iconTint="@android:color/white"
+        app:iconPadding="8dp"
+        app:backgroundTint="#FF1744"
+        android:textColor="#FFFFFF"
+        android:elevation="6dp" />
+
 </LinearLayout>

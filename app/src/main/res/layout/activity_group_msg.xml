@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1E88E5"
+    android:background="#121212"
     tools:context=".UI.GroupActivityMsg">
 
     <!-- ================= TOP IMAGE ================= -->
@@ -15,7 +15,6 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/mu"
         android:contentDescription="MU Logo"
         android:scaleType="centerInside"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,18 +30,17 @@
         android:gravity="center"
         android:paddingHorizontal="16dp"
         android:lineSpacingExtra="6dp"
-        android:text="CHAWA SANG'AMBA: 202303123
-GIVEN NKONDE: 202307227
-SIMON CHILA: 202304076
-CHRIS NYIRONGO: 202303935
-MARGRET MWANZA: 202309025
-FRIDAH MULALA: 202303219
-PHILIP SAKAYUTA: 202308496
-TEMWANI KASALA: 202305809
-NALUPYA CINDY: 202204815
-CHISHIBA NYEMBELE: 20200032"
-        android:textColor="#F8F9FA"
+        android:text="CHAWA SANG'AMBA: 202303123\nGIVEN NKONDE: 202307227\nSIMON CHILA: 202304076\nCHRIS NYIRONGO: 202303935\nMARGRET MWANZA: 202309025\nFRIDAH MULALA: 202303219\nPHILIP SAKAYUTA: 202308496\nTEMWANI KASALA: 202305809\nNALUPYA CINDY: 202204815\nCHISHIBA NYEMBELE: 20200032"
+        android:textColor="#FF1744"
         android:textSize="18sp"
+        android:background="#1E1E1E"
+        android:padding="16dp"
+        android:elevation="4dp"
+        android:layout_marginHorizontal="16dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:scrollbars="vertical"
+        android:overScrollMode="ifContentScrolls"
         app:layout_constraintTop_toBottomOf="@id/imageMu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -50,12 +48,19 @@ CHISHIBA NYEMBELE: 20200032"
     <!-- ================= CONTINUE BUTTON ================= -->
     <Button
         android:id="@+id/btn_continue"
-        android:layout_width="184dp"
-        android:layout_height="47dp"
+        android:layout_width="200dp"
+        android:layout_height="56dp"
         android:layout_marginTop="32dp"
-        android:backgroundTint="#212121"
+        android:backgroundTint="#FF1744"
         android:text="Continue"
-        android:textColor="#F8F9FA"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:stateListAnimator="@null"
+        android:clipToOutline="true"
+        android:paddingHorizontal="16dp"
+        android:layout_gravity="center"
+        android:elevation="6dp"
         app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

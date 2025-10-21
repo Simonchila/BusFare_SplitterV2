@@ -12,7 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="@android:color/white"
+        android:background="#FF1744"
         android:elevation="4dp"
         android:paddingHorizontal="16dp">
 
@@ -20,7 +20,7 @@
             android:id="@+id/btnOpenDrawer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="#FFFFFF"
             android:src="@drawable/ic_user_circle_small"
             android:contentDescription="Open Drawer"/>
 
@@ -32,13 +32,13 @@
             android:text="Bus Fare Splitter"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#212121"/>
+            android:textColor="#FFFFFF"/>
 
         <ImageButton
             android:id="@+id/btnPastTrips"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="#FFFFFF"
             android:src="@drawable/ic_list"
             android:contentDescription="Past Trips"/>
     </LinearLayout>
@@ -47,5 +47,6 @@
     <FrameLayout
         android:id="@+id/main_content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="#121212"/>
 </LinearLayout>

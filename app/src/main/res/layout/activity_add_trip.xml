@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1E88E5"
+    android:background="#121212"
     tools:context=".UI.AddTripActivity">
 
     <LinearLayout
@@ -11,33 +11,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
-        >
+        android:paddingTop="24dp">
 
         <TextView
             android:id="@+id/tvHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="24dp"
             android:text="Add Trip"
-            android:textColor="#F8F9FA"
-            android:textSize="26sp"
+            android:textColor="#FF1744"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="16dp">
+            android:paddingHorizontal="16dp"
+            android:background="#1E1E1E"
+            android:padding="16dp"
+            android:clipToPadding="false"
+            android:elevation="4dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginHorizontal="8dp"
+            android:clipChildren="false"
+            android:backgroundTint="#1E1E1E">
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:hint="Start"
-                android:textColorHint="#F8F9FA">
+                android:textColorHint="#FF3B30"
+                >
 
                 <AutoCompleteTextView
                     android:id="@+id/actvStart"
@@ -46,16 +54,17 @@
                     android:inputType="none"
                     android:paddingTop="16dp"
                     android:paddingBottom="16dp"
+                    android:textColor="#FFFFFF"
                     android:text="Select start city" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:hint="Destination"
-                android:textColorHint="#F8F9FA">
+                android:textColorHint="#FF1744">
 
                 <AutoCompleteTextView
                     android:id="@+id/actvDestination"
@@ -64,6 +73,7 @@
                     android:inputType="none"
                     android:paddingTop="16dp"
                     android:paddingBottom="16dp"
+                    android:textColor="#FFFFFF"
                     android:text="Select destination" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,9 +83,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:hint="Date"
-                android:textColorHint="#F8F9FA"
+                android:textColorHint="#FF1744"
                 app:endIconDrawable="@drawable/ic_calendar"
-                app:endIconTint="#F8F9FA"
+                app:endIconTint="#FF3B30"
                 app:endIconMode="custom">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -84,6 +94,7 @@
                     android:layout_height="wrap_content"
                     android:focusable="false"
                     android:inputType="none"
+                    android:textColor="#FFFFFF"
                     android:text="Oct 21, 2025" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,16 +102,18 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="16dp"
                 android:hint="Total Cost"
-                android:textColorHint="#F8F9FA"
-                app:prefixText="K">
+                android:textColorHint="#FF3B30"
+                app:prefixText="K"
+                app:prefixTextColor="#FF3B30">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etTotalCost"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
+                    android:textColor="#FFFFFF"
                     android:text="" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -111,8 +124,8 @@
             android:layout_marginBottom="12dp"
             android:paddingHorizontal="16dp"
             android:text="Passengers"
-            android:textColor="#F8F9FA"
-            android:textSize="18sp"
+            android:textColor="#FF1744"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -136,29 +149,30 @@
                 android:layout_marginBottom="25dp"
                 android:layout_gravity="end"
                 android:clickable="true"
-                android:drawablePadding="8dp"
                 android:focusable="true"
                 android:gravity="center_vertical"
                 android:text="Add Passenger"
-                android:textColor="#F8F9FA"
+                android:textColor="#FF1740"
                 android:textSize="20sp"
                 app:drawableStartCompat="@drawable/ic_add_circle_outline"
-                app:drawableTint="#1E88E5" />
+                app:drawableTint="#FF3B30" />
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCalculate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="24dp"
             android:minHeight="56dp"
             android:text="CALCULATE"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:backgroundTint="#212121"
-            app:cornerRadius="8dp" />
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#FF1744"
+            app:cornerRadius="12dp"
+            app:iconTint="#FFFFFF"
+            app:iconGravity="textStart" />
 
     </LinearLayout>
 </ScrollView>
