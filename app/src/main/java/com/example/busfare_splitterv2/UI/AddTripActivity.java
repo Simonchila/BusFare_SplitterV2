@@ -5,10 +5,12 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ import com.example.busfare_splitterv2.network.ApiService;
 import com.example.busfare_splitterv2.network.PassengerRequest;
 import com.example.busfare_splitterv2.network.TripRequest;
 import com.example.busfare_splitterv2.network.TripResponse;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -44,9 +47,9 @@ public class AddTripActivity extends AppCompatActivity {
     private RecyclerView rvPassengers;
     private PassengerAdapter passengerAdapter;
     private List<PassengerRequest> passengerList = new ArrayList<>();
-    private TextView tvAddPassenger;
     private EditText etDate, etTotalCost;
-
+    TextView btnAddPassenger;
+    private MaterialButton  btnCalculate;
     private ApiService apiService;
     private String authToken;
 
@@ -55,16 +58,28 @@ public class AddTripActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_trip);
 
+        // UI References
         actvStart = findViewById(R.id.actvStart);
         actvDestination = findViewById(R.id.actvDestination);
         etDate = findViewById(R.id.etDate);
         etTotalCost = findViewById(R.id.etTotalCost);
         rvPassengers = findViewById(R.id.rvPassengers);
-        tvAddPassenger = findViewById(R.id.tvAddPassenger);
+        btnAddPassenger = findViewById(R.id.tvAddPassenger);
+        btnCalculate = findViewById(R.id.btnCalculate);
 
-        findViewById(R.id.btnCalculate).setOnClickListener(v -> onCalculate());
+        // API setup
+        apiService = ApiClient.getApiService();
+        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+        String token = prefs.getString("jwt_token", null);
+        if (token == null) {
+            Toast.makeText(this, "Session expired. Please login again.", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+            return;
+        }
+        authToken = "Bearer " + token;
 
-        // Setup city adapters
+        // City dropdown setup
         ArrayAdapter<String> cityAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_dropdown_item_1line, cities);
         actvStart.setAdapter(cityAdapter);
@@ -72,7 +87,7 @@ public class AddTripActivity extends AppCompatActivity {
         actvStart.setOnClickListener(v -> actvStart.showDropDown());
         actvDestination.setOnClickListener(v -> actvDestination.showDropDown());
 
-        // Date picker
+        // Date picker setup
         etDate.setOnClickListener(v -> {
             Calendar c = Calendar.getInstance();
             new DatePickerDialog(AddTripActivity.this, (view, year, month, dayOfMonth) -> {
@@ -80,21 +95,20 @@ public class AddTripActivity extends AppCompatActivity {
             }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)).show();
         });
 
-        // Passenger adapter
-        passengerAdapter = new PassengerAdapter(passengerList,
+        // Passenger RecyclerView setup
+        passengerAdapter = new PassengerAdapter(
+                passengerList,
                 pos -> { passengerList.remove(pos); passengerAdapter.notifyDataSetChanged(); },
                 pos -> showEditPassengerDialog(pos, passengerList.get(pos))
         );
-
         rvPassengers.setLayoutManager(new LinearLayoutManager(this));
         rvPassengers.setAdapter(passengerAdapter);
 
-        tvAddPassenger.setOnClickListener(v -> showAddPassengerDialog());
+        // profile clicked
 
-        // Initialize API service and auth token
-        apiService = ApiClient.getApiService();
-        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
-        authToken = "Bearer " + prefs.getString("jwt_token", null);
+        // Button listeners
+        btnAddPassenger.setOnClickListener(v -> showAddPassengerDialog());
+        btnCalculate.setOnClickListener(v -> onCalculate());
     }
 
     private void showAddPassengerDialog() {
@@ -110,7 +124,10 @@ public class AddTripActivity extends AppCompatActivity {
                     String name = etName.getText().toString().trim();
                     double surcharge = 0;
                     try { surcharge = Double.parseDouble(etSurcharge.getText().toString().trim()); } catch (Exception ignored) {}
-                    if (name.isEmpty()) { Toast.makeText(this, "Name required", Toast.LENGTH_SHORT).show(); return; }
+                    if (name.isEmpty()) {
+                        Toast.makeText(this, "Passenger name required", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     passengerList.add(new PassengerRequest(name, surcharge));
                     passengerAdapter.notifyDataSetChanged();
                 })
@@ -134,7 +151,10 @@ public class AddTripActivity extends AppCompatActivity {
                     String name = etName.getText().toString().trim();
                     double surcharge = 0;
                     try { surcharge = Double.parseDouble(etSurcharge.getText().toString().trim()); } catch (Exception ignored) {}
-                    if (name.isEmpty()) { Toast.makeText(this, "Name required", Toast.LENGTH_SHORT).show(); return; }
+                    if (name.isEmpty()) {
+                        Toast.makeText(this, "Passenger name required", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     passengerList.set(position, new PassengerRequest(name, surcharge));
                     passengerAdapter.notifyDataSetChanged();
                 })
@@ -149,53 +169,46 @@ public class AddTripActivity extends AppCompatActivity {
         String totalS = etTotalCost.getText().toString().trim();
 
         if (start.isEmpty() || dest.isEmpty() || date.isEmpty() || totalS.isEmpty()) {
-            Toast.makeText(this, "Fill start, destination, date and total cost", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please fill in all trip details", Toast.LENGTH_SHORT).show();
             return;
         }
 
         double total;
-        try { total = Double.parseDouble(totalS); } catch (Exception ex) { Toast.makeText(this, "Invalid total cost", Toast.LENGTH_SHORT).show(); return; }
+        try { total = Double.parseDouble(totalS); }
+        catch (Exception ex) {
+            Toast.makeText(this, "Invalid total cost", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         if (passengerList.isEmpty()) {
             Toast.makeText(this, "Add at least one passenger", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Prepare TripRequest for the backend
-        TripRequest request = new TripRequest(
-                start,
-                dest,
-                date,
-                total,
-                passengerList
-        );
+        TripRequest request = new TripRequest(start, dest, date, total, passengerList);
 
-        // Send to server
         apiService.addTrip(authToken, request).enqueue(new Callback<TripResponse>() {
             @Override
             public void onResponse(Call<TripResponse> call, Response<TripResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     TripResponse tripResponse = response.body();
+                    Log.i("AddTripActivity", "Trip created: " + tripResponse.getId());
 
-                    // Use server response directly
-                    Trip trip = new Trip(tripResponse.getRoute(), tripResponse.getDate(), tripResponse.getTotalCost());
-                    trip.setId(tripResponse.getId()); // set the server ID
-                    trip.getPassengers().addAll(tripResponse.getPassengers());
-
-                    Intent i = new Intent(AddTripActivity.this, SplitResultsActivity.class);
-                    i.putExtra("trip_id", trip.getId());
+                    Intent i = new Intent(AddTripActivity.this, TripDetailsActivity.class);
+                    i.putExtra("trip_id", tripResponse.getId());
                     startActivity(i);
                     finish();
                 } else {
-                    Toast.makeText(AddTripActivity.this, "Failed to create trip", Toast.LENGTH_SHORT).show();
+                    Log.e("AddTripActivity", "Failed: " + response.code() + " -> " + response.errorBody());
+                    Toast.makeText(AddTripActivity.this, "Trip creation failed. Try again.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<TripResponse> call, Throwable t) {
-                Toast.makeText(AddTripActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                Log.e("AddTripActivity", "Network error", t);
+                Toast.makeText(AddTripActivity.this, "Network error: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }

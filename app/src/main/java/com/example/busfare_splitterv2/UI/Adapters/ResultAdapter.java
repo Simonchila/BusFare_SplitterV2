@@ -26,8 +26,8 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.VH> {
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
         PassengerShare p = list.get(position);
-        holder.tvName.setText(p.name);
-        holder.tvAmount.setText(String.format("K%.2f", p.shareAmount));
+        holder.tvName.setText(p.getName());
+        holder.tvAmount.setText(String.format("K%.2f", p.getShareAmount()));
         holder.tvSurcharge.setText(String.format("K%.2f surcharge", p.surcharge));
     }
 

@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    private static final String BASE_URL = "http://192.168.8.101:8000/"; // emulator localhost
+    private static final String BASE_URL = "http://192.168.8.101:8000/"; // pc ip address
     private static Retrofit retrofit;
 
     public static Retrofit getClient() {

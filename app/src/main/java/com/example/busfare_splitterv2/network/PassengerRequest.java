@@ -8,4 +8,20 @@ public class PassengerRequest {
         this.name = name;
         this.surcharge = surcharge;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getSurcharge() {
+        return surcharge;
+    }
+
+    public void setSurcharge(double surcharge) {
+        this.surcharge = surcharge;
+    }
 }

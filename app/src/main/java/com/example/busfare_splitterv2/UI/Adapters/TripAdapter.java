@@ -38,7 +38,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.VH> {
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
         Trip trip = trips.get(position);
-        holder.tvRoute.setText(trip.getRoute());
+        holder.tvRoute.setText(trip.getStart() + " → " + trip.getDestination());
         holder.tvDate.setText(trip.getDate());
         holder.tvTotal.setText(String.format("K%.2f", trip.getTotalCost()));
 

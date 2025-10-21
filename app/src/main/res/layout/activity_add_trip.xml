@@ -1,136 +1,157 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@drawable/buscool"> <!-- Dark background -->
+    android:background="#F8F9FA"
+    tools:context=".UI.AddTripActivity">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:paddingBottom="16dp">
 
-        <!-- Header -->
         <TextView
             android:id="@+id/tvHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
             android:text="Add Trip"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/md_onPrimary"
-            android:background="@drawable/blue_border"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp"/>
+            android:textColor="#212121"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
-        <!-- Starting Point -->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:hint="Starting Point">
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
 
-            <AutoCompleteTextView
-                android:id="@+id/actvStart"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:completionThreshold="1"
-                android:inputType="text"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#B0B0B0"
-                android:padding="12dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Destination -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:hint="Destination">
-
-            <AutoCompleteTextView
-                android:id="@+id/actvDestination"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:completionThreshold="1"
-                android:inputType="text"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#B0B0B0"
-                android:padding="12dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Date -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:hint="Date">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etDate"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="false"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#B0B0B0"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginBottom="16dp"
+                android:hint="Start">
 
-        <!-- Total Cost -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Total cost">
+                <AutoCompleteTextView
+                    android:id="@+id/actvStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="Select start city" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etTotalCost"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#B0B0B0"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginBottom="16dp"
+                android:hint="Destination">
 
-        <!-- Passengers Header -->
+                <AutoCompleteTextView
+                    android:id="@+id/actvDestination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="Select destination" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Date"
+                app:endIconDrawable="@drawable/ic_calendar"
+                app:endIconMode="custom">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:text="Oct 21, 2025" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:hint="Total Cost"
+                app:prefixText="K">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTotalCost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:text="" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/tvPassengersHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:paddingHorizontal="16dp"
             android:text="Passengers"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp"/>
+            android:textColor="#212121"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <!-- RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvPassengers"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginBottom="8dp"/>
-
-        <!-- Add Passenger -->
-
-        <!-- Calculate Button -->
-
-        <TextView
-            android:id="@+id/tvAddPassenger"
-            android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/blue_border"
-            android:padding="8dp"
-            android:text="Add passenger"
-            android:textColor="#FFFFFF" />
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
 
-        <Button
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPassengers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                tools:itemCount="2"
+                tools:layout_height="120dp" />
+
+            <TextView
+                android:id="@+id/tvAddPassenger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:layout_gravity="end"
+                android:clickable="true"
+                android:drawablePadding="8dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:text="Add Passenger"
+                android:textColor="#0BC012"
+                android:textSize="20sp"
+                app:drawableStartCompat="@drawable/ic_add_circle_outline"
+                app:drawableTint="#1E88E5" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCalculate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#2196F3"
-            android:text="Calculate split"
-            android:layout_gravity="center_horizontal"
-            android:textColor="#FFFFFF" />
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:minHeight="56dp"
+            android:text="CALCULATE"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="#1E88E5"
+            app:cornerRadius="8dp" />
+
     </LinearLayout>
 </ScrollView>

@@ -4,6 +4,7 @@ import com.example.busfare_splitterv2.UI.Trip;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
@@ -25,7 +26,15 @@ public interface ApiService {
                                @Body TripRequest tripRequest);
 
     // NEW: Get a single trip by ID
-    @GET("trips/{id}")
+    @GET("trips/{trip_id}")
     Call<TripResponse> getTrip(@Header("Authorization") String authToken,
-                               @Path("id") int tripId);
+                               @Path("trip_id") int tripId);
+
+    @DELETE("trips/{trip_id}/passengers/{passenger_id}")
+    Call<Void> deletePassenger(
+            @Header("Authorization") String token,
+            @Path("trip_id") int tripId,
+            @Path("passenger_id") int passengerId
+    );
+
 }

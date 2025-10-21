@@ -1,40 +1,84 @@
 package com.example.busfare_splitterv2.network;
 
 import com.example.busfare_splitterv2.UI.PassengerShare;
-import java.io.Serializable;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
-public class TripResponse implements Serializable {
-    private int id; // server-side trip ID
-    private String route;
-    private String date;
-    private double totalCost;
-    private List<PassengerShare> passengers;
+public class TripResponse {
 
-    // No-args constructor for Gson
-    public TripResponse() {}
+    private int id;
+    private String start;
+    private String destination;
 
-    public TripResponse(int id, String route, String date, double totalCost, List<PassengerShare> passengers) {
+    public void setId(int id) {
         this.id = id;
-        this.route = route;
-        this.date = date;
-        this.totalCost = totalCost;
+    }
+
+    public void setPassengers(List<PassengerShare> passengers) {
         this.passengers = passengers;
     }
 
-    // Getters & setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-    public String getRoute() { return route; }
-    public void setRoute(String route) { this.route = route; }
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-    public String getDate() { return date; }
-    public void setDate(String date) { this.date = date; }
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
 
-    public double getTotalCost() { return totalCost; }
-    public void setTotalCost(double totalCost) { this.totalCost = totalCost; }
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
 
-    public List<PassengerShare> getPassengers() { return passengers; }
-    public void setPassengers(List<PassengerShare> passengers) { this.passengers = passengers; }
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    private String date;
+
+    @SerializedName("total_cost")
+    private double totalCost;
+
+    @SerializedName("user_id")
+    private int userId;
+
+    private List<PassengerShare> passengers;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getStart() {
+        return start;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public double getTotalCost() {
+        return totalCost;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public List<PassengerShare> getPassengers() {
+        return passengers;
+    }
+
+    public String getRoute() {
+        return start + " → " + destination;
+    }
+
 }

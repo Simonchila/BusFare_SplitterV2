@@ -14,38 +14,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BusFare_SplitterV2">
         <activity
+            android:name=".UI.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".UI.GroupActivityMsg"
             android:exported="false" />
-
         <activity
             android:name=".UI.LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".UI.RegisterActivity"
             android:exported="false" />
-
         <activity
             android:name=".UI.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".UI.TripListActivity"
             android:exported="false" />
-
         <activity
-            android:name=".UI.SplitResultsActivity"
+            android:name=".UI.TripDetailsActivity"
             android:exported="false" />
-
         <activity
             android:name=".UI.AddTripActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>

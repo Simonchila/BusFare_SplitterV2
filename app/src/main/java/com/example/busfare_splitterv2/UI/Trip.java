@@ -6,25 +6,29 @@ import java.util.List;
 
 public class Trip implements Serializable {
     private int id; // server-side trip ID
-    private String route;
+    private String start;
+    private String destination;
     private String date;
     private double totalCost;
     private List<PassengerShare> passengers = new ArrayList<>();
 
     // Constructors
     public Trip() {
-        // Default constructor required for Gson
+        // Default constructor
     }
 
-    public Trip(String route, String date, double totalCost) {
-        this.route = route;
+    public Trip(int id, String start, String destination, String date, double totalCost) {
+        this.id = id;
+        this.start = start;
+        this.destination = destination;
         this.date = date;
         this.totalCost = totalCost;
     }
 
-    public Trip(int id, String route, String date, double totalCost, List<PassengerShare> passengers) {
+    public Trip(int id, String start, String destination, String date, double totalCost, List<PassengerShare> passengers) {
         this.id = id;
-        this.route = route;
+        this.start = start;
+        this.destination = destination;
         this.date = date;
         this.totalCost = totalCost;
         this.passengers = passengers;
@@ -34,8 +38,11 @@ public class Trip implements Serializable {
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
-    public String getRoute() { return route; }
-    public void setRoute(String route) { this.route = route; }
+    public String getStart() { return start; }
+    public void setStart(String start) { this.start = start; }
+
+    public String getDestination() { return destination; }
+    public void setDestination(String destination) { this.destination = destination; }
 
     public String getDate() { return date; }
     public void setDate(String date) { this.date = date; }
@@ -45,4 +52,5 @@ public class Trip implements Serializable {
 
     public List<PassengerShare> getPassengers() { return passengers; }
     public void setPassengers(List<PassengerShare> passengers) { this.passengers = passengers; }
+
 }
