@@ -10,11 +10,11 @@ import android.view.LayoutInflater;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,8 +48,8 @@ public class AddTripActivity extends AppCompatActivity {
     private PassengerAdapter passengerAdapter;
     private List<PassengerRequest> passengerList = new ArrayList<>();
     private EditText etDate, etTotalCost;
-    TextView btnAddPassenger;
-    private MaterialButton  btnCalculate;
+    private TextView btnAddPassenger;
+    private MaterialButton btnCalculate;
     private ApiService apiService;
     private String authToken;
 
@@ -58,7 +58,7 @@ public class AddTripActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_trip);
 
-        // UI References
+        // UI references
         actvStart = findViewById(R.id.actvStart);
         actvDestination = findViewById(R.id.actvDestination);
         etDate = findViewById(R.id.etDate);
@@ -87,7 +87,7 @@ public class AddTripActivity extends AppCompatActivity {
         actvStart.setOnClickListener(v -> actvStart.showDropDown());
         actvDestination.setOnClickListener(v -> actvDestination.showDropDown());
 
-        // Date picker setup
+        // Date picker
         etDate.setOnClickListener(v -> {
             Calendar c = Calendar.getInstance();
             new DatePickerDialog(AddTripActivity.this, (view, year, month, dayOfMonth) -> {
@@ -96,15 +96,37 @@ public class AddTripActivity extends AppCompatActivity {
         });
 
         // Passenger RecyclerView setup
+        // Initialize adapter and pass the actual passenger list
         passengerAdapter = new PassengerAdapter(
                 passengerList,
-                pos -> { passengerList.remove(pos); passengerAdapter.notifyDataSetChanged(); },
+                pos -> {
+                    passengerList.remove(pos);
+                    passengerAdapter.notifyItemRemoved(pos);
+                },
                 pos -> showEditPassengerDialog(pos, passengerList.get(pos))
         );
+
         rvPassengers.setLayoutManager(new LinearLayoutManager(this));
         rvPassengers.setAdapter(passengerAdapter);
 
-        // profile clicked
+
+        // Swipe to delete passengers
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                                  RecyclerView.ViewHolder target) {
+                return false; // we don't want drag & drop
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                passengerList.remove(position);
+                passengerAdapter.notifyItemRemoved(position);
+                Toast.makeText(AddTripActivity.this, "Passenger removed", Toast.LENGTH_SHORT).show();
+            }
+        }).attachToRecyclerView(rvPassengers);
 
         // Button listeners
         btnAddPassenger.setOnClickListener(v -> showAddPassengerDialog());

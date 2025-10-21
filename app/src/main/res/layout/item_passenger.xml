@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:background="@android:color/white"
+        android:background="#212121"
         android:orientation="horizontal"
         android:paddingVertical="12dp"
         android:paddingStart="16dp"
@@ -32,7 +32,7 @@
                 android:id="@+id/tvName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#212121"
+                android:textColor="#F8F9FA"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="Alice Mweemba" />
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="+K0.00"
-                android:textColor="#1E88E5"
+                android:textColor="#F8F9FA"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 tools:text="+K50.00 Share" />

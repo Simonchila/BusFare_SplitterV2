@@ -25,7 +25,7 @@ public interface ApiService {
     Call<TripResponse> addTrip(@Header("Authorization") String authToken,
                                @Body TripRequest tripRequest);
 
-    // NEW: Get a single trip by ID
+    // Get a single trip by ID
     @GET("trips/{trip_id}")
     Call<TripResponse> getTrip(@Header("Authorization") String authToken,
                                @Path("trip_id") int tripId);
@@ -37,4 +37,11 @@ public interface ApiService {
             @Path("passenger_id") int passengerId
     );
 
+    // NEW: Delete a trip by ID
+    @DELETE("trips/{trip_id}")
+    Call<Void> deleteTrip(
+            @Header("Authorization") String token,
+            @Path("trip_id") int tripId
+    );
 }
+

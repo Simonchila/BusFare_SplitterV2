@@ -1,30 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1E88E5"
     tools:context=".UI.GroupActivityMsg">
 
+    <!-- ================= TOP IMAGE ================= -->
+    <ImageView
+        android:id="@+id/imageMu"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/mu"
+        android:contentDescription="MU Logo"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ================= TEXT VIEW ================= -->
     <TextView
         android:id="@+id/textView"
-        android:layout_width="181dp"
-        android:layout_height="42dp"
-        android:text="change this to have group 3 credentials. and members list"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:lineSpacingExtra="6dp"
+        android:text="CHAWA SANG'AMBA: 202303123
+GIVEN NKONDE: 202307227
+SIMON CHILA: 202304076
+CHRIS NYIRONGO: 202303935
+MARGRET MWANZA: 202309025
+FRIDAH MULALA: 202303219
+PHILIP SAKAYUTA: 202308496
+TEMWANI KASALA: 202305809
+NALUPYA CINDY: 202204815
+CHISHIBA NYEMBELE: 20200032"
+        android:textColor="#F8F9FA"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/imageMu"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- ================= CONTINUE BUTTON ================= -->
     <Button
         android:id="@+id/btn_continue"
         android:layout_width="184dp"
         android:layout_height="47dp"
-        android:layout_marginTop="56dp"
-        android:text="continue"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#212121"
+        android:text="Continue"
+        android:textColor="#F8F9FA"
+        app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,24 +19,15 @@ import java.util.Locale;
 
 public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.VH> {
 
-    private List<PassengerShare> passengers;
-
-    public void setPassengers(List<PassengerShare> passengers) {
-        this.passengers.clear();
-        if (passengers != null) {
-            this.passengers.addAll(passengers);
-        }
-        notifyDataSetChanged();
-    }
+    private final List<PassengerRequest> passengers;
+    private final OnRemove removeListener;
+    private final OnEdit editListener;
 
     public interface OnRemove { void onRemove(int pos); }
     public interface OnEdit { void onEdit(int pos); }
 
-    private final OnRemove removeListener;
-    private final OnEdit editListener;
-
     public PassengerAdapter(List<PassengerRequest> passengers, OnRemove removeListener, OnEdit editListener) {
-        this.passengers = new ArrayList<PassengerShare>();
+        this.passengers = passengers;
         this.removeListener = removeListener;
         this.editListener = editListener;
     }
@@ -44,20 +35,15 @@ public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.VH> 
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_passenger, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_passenger, parent, false);
         return new VH(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-        PassengerShare p = passengers.get(position);
-
-        holder.tvName.setText(p.getName());
-
-
-        // Show calculated share amount
-        holder.tvShare.setText(String.format(Locale.getDefault(), "K%.2f", p.getShareAmount()));
+        PassengerRequest p = passengers.get(position);
+        holder.tvName.setText(p.name);
+        holder.tvShare.setText(String.format(Locale.getDefault(), "K%.2f", p.surcharge));
 
         holder.btnRemove.setOnClickListener(v -> {
             if (removeListener != null)
@@ -75,6 +61,15 @@ public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.VH> 
         return passengers.size();
     }
 
+    public void setPassengers(List<PassengerRequest> passengers) {
+        this.passengers.clear();
+        if (passengers != null) {
+            this.passengers.addAll(passengers);
+        }
+        notifyDataSetChanged();
+    }
+
+
     static class VH extends RecyclerView.ViewHolder {
         TextView tvName, tvShare;
         ImageButton btnRemove;
@@ -87,3 +82,4 @@ public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.VH> 
         }
     }
 }
+

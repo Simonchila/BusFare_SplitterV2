@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA"
+    android:background="#1E88E5"
     tools:context=".UI.AddTripActivity">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp">
+        android:paddingBottom="16dp"
+        >
 
         <TextView
             android:id="@+id/tvHeader"
@@ -20,7 +21,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="24dp"
             android:text="Add Trip"
-            android:textColor="#212121"
+            android:textColor="#F8F9FA"
             android:textSize="26sp"
             android:textStyle="bold" />
 
@@ -35,7 +36,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="Start">
+                android:hint="Start"
+                android:textColorHint="#F8F9FA">
 
                 <AutoCompleteTextView
                     android:id="@+id/actvStart"
@@ -52,7 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="Destination">
+                android:hint="Destination"
+                android:textColorHint="#F8F9FA">
 
                 <AutoCompleteTextView
                     android:id="@+id/actvDestination"
@@ -70,7 +73,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:hint="Date"
+                android:textColorHint="#F8F9FA"
                 app:endIconDrawable="@drawable/ic_calendar"
+                app:endIconTint="#F8F9FA"
                 app:endIconMode="custom">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -88,6 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:hint="Total Cost"
+                android:textColorHint="#F8F9FA"
                 app:prefixText="K">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -105,7 +111,7 @@
             android:layout_marginBottom="12dp"
             android:paddingHorizontal="16dp"
             android:text="Passengers"
-            android:textColor="#212121"
+            android:textColor="#F8F9FA"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -134,7 +140,7 @@
                 android:focusable="true"
                 android:gravity="center_vertical"
                 android:text="Add Passenger"
-                android:textColor="#0BC012"
+                android:textColor="#F8F9FA"
                 android:textSize="20sp"
                 app:drawableStartCompat="@drawable/ic_add_circle_outline"
                 app:drawableTint="#1E88E5" />
@@ -142,15 +148,16 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCalculate"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="16dp"
             android:minHeight="56dp"
             android:text="CALCULATE"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:backgroundTint="#1E88E5"
+            app:backgroundTint="#212121"
             app:cornerRadius="8dp" />
 
     </LinearLayout>

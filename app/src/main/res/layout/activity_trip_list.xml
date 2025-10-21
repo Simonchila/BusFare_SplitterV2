@@ -1,17 +1,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#F8F9FA"
+    android:background="#1E88E5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UI.TripListActivity">
 
-    <!-- Top Header -->
+    <!-- ================= TOP HEADER ================= -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="#212121"
         android:paddingHorizontal="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="8dp"
@@ -23,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Trips"
-            android:textColor="#212121"
+            android:textColor="#F8F9FA"
             android:textSize="28sp"
             android:textStyle="bold" />
 
@@ -35,38 +36,36 @@
             android:contentDescription="Profile Icon"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="4dp"
-            app:tint="#1E88E5" />
+            app:tint="#F8F9FA" />
     </LinearLayout>
 
-    <!-- RecyclerView for trips -->
+    <!-- ================= RECYCLER VIEW ================= -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTrips"
-        android:layout_below="@id/headerLayout"
-        android:layout_above="@+id/fabAdd"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="16dp"
-        android:background="@drawable/blue_border"
-        android:padding="6dp"
-        android:layout_margin="10dp"
+        android:layout_below="@id/headerLayout"
+        android:layout_margin="16dp"
         android:clipToPadding="false"
-        android:layout_marginBottom="60dp" />
+        android:padding="6dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:overScrollMode="never" />
 
-    <!-- Empty state text -->
+    <!-- ================= EMPTY STATE ================= -->
     <TextView
         android:id="@+id/tvEmpty"
         android:layout_centerInParent="true"
         android:visibility="gone"
         android:text="No trips yet.\nTap + to add one!"
         android:textAlignment="center"
-        android:textColor="#757575"
-        android:textSize="18sp"
+        android:textColor="#F8F9FA"
+        android:textSize="30sp"
         android:padding="24dp"
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Progress bar while loading -->
+    <!-- ================= PROGRESS BAR ================= -->
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleLarge"
@@ -76,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <!-- Floating Add Trip Button -->
+    <!-- ================= ADD TRIP FAB ================= -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdd"
         android:layout_width="wrap_content"
@@ -84,10 +83,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="42dp"
         android:contentDescription="Add Trip"
         android:src="@drawable/ic_add"
         android:tint="@android:color/white"

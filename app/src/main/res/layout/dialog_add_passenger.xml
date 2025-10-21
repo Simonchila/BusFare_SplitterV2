@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@android:color/white"
+    android:background="#212121"
     android:padding="20dp">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:hint="Passenger Name">
+        android:hint="Passenger Name"
+        android:textColorHint="#F8F9FA">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassengerName"
@@ -26,13 +27,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Surcharge (optional)"
-        app:prefixText="K">
+        android:textColorHint="#F8F9FA"
+        app:prefixText="K"
+        app:prefixTextColor="#F8F9FA">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassengerSurcharge"
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:text="0.00" />
+            android:text="0.00"
+            android:textColor="#F8F9FA"/>
     </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="#212121"
         android:padding="16dp">
 
         <LinearLayout
@@ -31,7 +32,7 @@
                 android:layout_weight="1"
                 android:text="Ndola → Lusaka"
                 android:textStyle="bold"
-                android:textColor="#212121"
+                android:textColor="#F8F9FA"
                 android:textSize="18sp" />
 
             <TextView
@@ -40,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="K400"
                 android:textStyle="bold"
-                android:textColor="#1E88E5"
+                android:textColor="#F8F9FA"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -48,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginVertical="8dp"
-            android:background="#E0E0E0" />
+            android:background="#F8F9FA" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="3 passengers"
-                android:textColor="#555555"
+                android:textColor="#F8F9FA"
                 android:textSize="14sp" />
 
             <TextView
@@ -69,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2025-10-15"
-                android:textColor="#757575"
+                android:textColor="#F8F9FA"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

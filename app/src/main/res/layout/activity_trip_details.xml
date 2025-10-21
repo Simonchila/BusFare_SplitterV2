@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F8F9FA"
+    android:background="#1E88E5"
     tools:context=".UI.TripDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="#212121"
         android:elevation="2dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -24,7 +24,7 @@
             android:contentDescription="Back"
             android:padding="8dp"
             android:src="@drawable/ic_back_arrow"
-            app:tint="#212121" />
+            app:tint="#F8F9FA" />
 
         <TextView
             android:id="@+id/tvHeader"
@@ -33,7 +33,7 @@
             android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:text="Trip Details"
-            android:textColor="#212121"
+            android:textColor="#F8F9FA"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -49,6 +49,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
@@ -62,7 +63,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="158dp"
+                    android:background="#212121"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -71,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:textColor="#757575"
+                        android:textColor="#F8F9FA"
                         android:textSize="16sp"
                         tools:text="Ndola → Lusaka | 2025-10-15" />
 
@@ -79,7 +81,7 @@
                         android:id="@+id/tvTotalCost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#1E88E5"
+                        android:textColor="#F8F9FA"
                         android:textSize="24sp"
                         android:textStyle="bold"
                         tools:text="Total Cost — K400.00" />
@@ -95,7 +97,7 @@
                         android:id="@+id/tvPassengerCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#555555"
+                        android:textColor="#F8F9FA"
                         android:textSize="14sp"
                         tools:text="4 Passengers split the fare" />
                 </LinearLayout>
@@ -107,8 +109,8 @@
                 android:layout_marginBottom="8dp"
                 android:paddingHorizontal="16dp"
                 android:text="Passenger Shares"
-                android:textColor="#212121"
-                android:textSize="18sp"
+                android:textColor="#F8F9FA"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -121,19 +123,26 @@
                 tools:itemCount="4"
                 tools:listitem="@layout/item_passenger" />
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnExport"
-        android:layout_width="match_parent"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="16dp"
         android:minHeight="56dp"
         android:text="EXPORT SHARES (CSV)"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:backgroundTint="#43A047"
+        app:backgroundTint="#212121"
         app:cornerRadius="8dp" />
 
 </LinearLayout>
