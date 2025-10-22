@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Base light/dark theme -->
     <style name="Base.Theme.BusFare_SplitterV2" parent="Theme.Material3.DayNight.NoActionBar">
+
         <!-- Primary colors -->
         <item name="colorPrimary">@color/md_primary</item>
         <item name="colorOnPrimary">@color/md_onPrimary</item>
@@ -12,17 +12,32 @@
         <item name="colorOnSecondary">@color/md_onSecondary</item>
         <item name="colorSecondaryContainer">@color/md_secondaryVariant</item>
 
-        <!-- Background & surface -->
+        <!-- Background & surfaces -->
         <item name="android:colorBackground">@color/md_background</item>
         <item name="colorSurface">@color/md_surface</item>
         <item name="colorOnBackground">@color/md_onBackground</item>
         <item name="colorOnSurface">@color/md_onSurface</item>
 
-        <!-- Error -->
+        <!-- Error colors -->
         <item name="colorError">@color/md_error</item>
         <item name="colorOnError">@color/md_onError</item>
+
+        <!-- Dark UI consistency -->
+        <item name="android:popupBackground">@color/md_surface</item> <!-- dropdowns -->
+        <item name="android:datePickerStyle">@style/DarkDatePicker</item> <!-- calendar -->
+        <item name="android:timePickerStyle">@style/DarkTimePicker</item>
     </style>
 
-    <!-- The theme we actually use in Manifest -->
-    <style name="Theme.BusFare_SplitterV2" parent="Base.Theme.BusFare_SplitterV2" />
+    <!-- Dark date/time pickers -->
+    <style name="DarkDatePicker" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="android:background">@color/md_surface</item>
+        <item name="android:textColor">@color/md_secondary</item>
+    </style>
+
+    <style name="DarkTimePicker" parent="ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="android:background">@color/md_surface</item>
+        <item name="android:textColor">@color/md_onSurface</item>
+    </style>
+
 </resources>
+

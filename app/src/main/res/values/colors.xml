@@ -1,18 +1,20 @@
+<!-- colors.xml -->
 <resources>
     <!-- Core palette -->
-    <color name="md_primary">#1173F5</color>       <!-- strong blue -->
-    <color name="md_primaryVariant">#0D47A1</color> <!-- darker blue -->
-    <color name="md_secondary">#00BCD4</color>     <!-- teal -->
-    <color name="md_secondaryVariant">#00838F</color>
-    <color name="md_background">#203A53</color>   <!-- very light blue/white -->
-    <color name="md_surface">#FFFFFF</color>
-    <color name="md_error">#B00020</color>
+    <color name="md_primary">#FF1744</color>          <!-- vibrant blue -->
+    <color name="md_primaryVariant">#FF1744</color>   <!-- darker blue -->
+    <color name="md_secondary">#FF1744</color>        <!-- teal accent -->
+    <color name="md_secondaryVariant">#FF1744</color>
+
+    <!-- Dark mode surfaces -->
+    <color name="md_background">#121212</color>       <!-- main dark background -->
+    <color name="md_surface">#121212</color>          <!-- dark gray for popups/dialogs -->
+    <color name="md_error">#CF6679</color>
 
     <!-- Text colors -->
     <color name="md_onPrimary">#FFFFFF</color>
     <color name="md_onSecondary">#FFFFFF</color>
-    <color name="md_onBackground">#0A0A0A</color>
-    <color name="md_onSurface">#0A0A0A</color>
-    <color name="md_onError">#FFFFFF</color>
+    <color name="md_onBackground">#121212</color>
+    <color name="md_onSurface">#FFFFFF</color>
+    <color name="md_onError">#000000</color>
 </resources>
-

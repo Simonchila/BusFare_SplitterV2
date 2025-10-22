@@ -12,13 +12,12 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BusFare_SplitterV2">
-        <activity
+        android:theme="@style/Base.Theme.BusFare_SplitterV2">
+
+    <activity
             android:name=".UI.ProfileActivity"
             android:exported="false" />
-        <activity
-            android:name=".UI.GroupActivityMsg"
-            android:exported="false" />
+
         <activity
             android:name=".UI.LoginActivity"
             android:exported="false" />
