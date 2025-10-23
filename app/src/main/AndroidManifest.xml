@@ -14,10 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.BusFare_SplitterV2">
 
+
     <activity
             android:name=".UI.ProfileActivity"
             android:exported="false" />
 
+        <activity android:name=".UI.Settings"
+            android:exported="false" />
+
+
+
+
+        <activity android:name=".UI.SupportDetails" />
+        <activity android:name=".UI.AboutUs" />
         <activity
             android:name=".UI.LoginActivity"
             android:exported="false" />

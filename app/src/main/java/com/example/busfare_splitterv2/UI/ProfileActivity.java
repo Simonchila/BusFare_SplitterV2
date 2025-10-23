@@ -102,12 +102,12 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         if (id == R.id.nav_home) {
             // Already on the Home screen (or AddTrip screen)
             // No action needed if Home is the current activity.
+            navigateToTripsList();
             return true;
         } else if (id == R.id.nav_view_trips) {
             navigateToTripsList();
         } else if (id == R.id.nav_settings) {
-            // Implement Settings Activity/Fragment later
-            Toast.makeText(this, "Settings coming soon!", Toast.LENGTH_SHORT).show();
+            openSettings();
         } else if (id == R.id.nav_logout) {
             showLogoutDialog();
             return true; // Handle logout immediately
@@ -117,11 +117,17 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     }
 
     // --- Action Methods ---
+    public void openSettings(){
+        Intent settings = new Intent(this, Settings.class);
+        startActivity(settings);
+    }
 
     private void navigateToTripsList() {
         // Assuming you have a TripListActivity to show all past trips
         // startActivity(new Intent(MainActivity.this, TripListActivity.class));
         Toast.makeText(this, "Navigating to Past Trips...", Toast.LENGTH_SHORT).show();
+        Intent nav = new Intent(this, TripListActivity.class);
+        startActivity(nav);
     }
 
     private void showLogoutDialog() {

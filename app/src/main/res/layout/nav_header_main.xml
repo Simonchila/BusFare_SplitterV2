@@ -11,12 +11,14 @@
     <ImageView
         android:id="@+id/ivProfileImage"
         android:layout_width="64dp"
+        android:layout_gravity="center"
         android:layout_height="64dp"
         android:background="#FF1744"
         android:src="@drawable/ic_user_circle"
         android:contentDescription="Profile Image"/>
 
     <TextView
+        android:textAlignment="center"
         android:id="@+id/tvNavHeaderName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,6 +29,7 @@
         android:paddingTop="8dp"/>
 
     <TextView
+        android:textAlignment="center"
         android:id="@+id/tvNavHeaderEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

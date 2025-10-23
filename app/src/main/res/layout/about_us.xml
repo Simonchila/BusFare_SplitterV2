@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_onSecondary"
+    >
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:text="ABOUT US"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:text="Our Story: Bus Fare Splitter was born from a simple frustrating experience: a group struggling to decide how to split the cost on a trip. Our mission is to take the frustrating mathematics out."
+            android:gravity=""
+            />
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:text="What We Do: We provide a simple, intuitive tool that helps friends, families, and colleagues split transportation costs fairly. Whether it is a cross country trip or daily commute."
+            android:gravity=""
+            />
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:text="copyright © bussplitter 2025."
+            android:gravity="center"
+            />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:text="Back"
+            android:onClick="back"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+</ScrollView>
